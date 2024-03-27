@@ -18,7 +18,7 @@ class Solution(object):
         # once the while loop is done and the streak is found, the for loop continue on to the next number
         #the if statement is used so it only count on numbers that start in the begining
         for num in num_set:
-            if num - 1 not in num_set:
+            if num - 1 not in num_set:#make sure it doesn't repeat the same num
                 current_num = num
                 current_streak = 1
 

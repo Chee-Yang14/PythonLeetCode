@@ -14,11 +14,9 @@ class Solution(object):
         holds.sort
         holdt.sort
     
-        for i in len(s):
-            if(t[i] != s[i]):
-                return False
+        if holds == holdt:
+           return True
             
-            
-        return True
+        return False
     
         
