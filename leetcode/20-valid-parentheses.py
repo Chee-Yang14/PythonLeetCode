@@ -6,27 +6,32 @@ class Solution(object):
         """
         holder = []
         
-        for i, char in enumerate(s): 
+        for char in s: 
                         
-           if len(holder) == 0:
+            if len(holder) == 0:
                holder.append(char) 
                continue
            
-           match char:
-                case '(':
-                   holder.append('(')
-                case '[':
-                   holder.append('[')
-                case '{':
-                   holder.append('{')
-                case ')':
-                    if holder.pop('(') == '(':
-                        return False
-                case ']':
-                    if holder.pop('[') == '[':
-                        return False
-                case '}':
-                    if holder.pop('{') == '{':
-                        return False
+            if char == '(':
+                holder.append('(')
+                continue
+            elif char == '[':
+                holder.append('[')
+                continue
+            elif char == '{':
+                holder.append('{')
+                continue
+
+            charHolder = holder.pop()
+            
+            if char == ')' and charHolder != '(':
+                print(char, charHolder)
+                return False
+            if char == ']' and charHolder != '[':
+                print(char, charHolder)
+                return False
+            if char == '}' and charHolder != '{':
+                print(char, charHolder)
+                return False
         
-        return True
+        return len(holder) == 0
